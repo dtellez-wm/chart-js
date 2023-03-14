@@ -529,7 +529,7 @@ const datos = [
     <div className="App">
       <Header/>
       <h1>Prueba</h1>
-      <div style={{ padding: "20px", width: "50%", border: "1px solid #ccc", borderRadius: "5px" }}>
+      <div style={{ padding: "20px", width: "50%", border: "1px solid #ccc", borderRadius: "5px", margin: "0 auto" }}>
       <Pie data={data} options={options}></Pie>
       </div>
     </div>
