@@ -21,7 +21,7 @@ const options = {
 const MyChart = () => {
   return (
     <div>
-      <h2>Ventas por mes</h2>
+      <h2>Propuesta</h2>
       <Bar data={data} options={options} key="unique-key"/>
     </div>
   );
