@@ -41,3 +41,11 @@ code {
   background: #101826;
   color: var(--color-white);
 }
+
+.prueba {
+  padding: 20px;
+  width: 50%;
+  border: 1px solid red;
+  border-radius: 5px;
+  margin: 0 auto;
+}
