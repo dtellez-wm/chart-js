@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import MyChart from "./MyChart";
 import Header from "./Header";
+import Search from "./Search";
 import chartButtonsPlugin from "./chartButtonsPlugin";
 import { datos } from "./datos";
 import { labels } from "./labels";
@@ -47,7 +48,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <h1>Prueba</h1>
+      <Search />
       <div className="prueba" style={{  }}>
         <Pie data={data} options={options} plugins={[chartButtonsPlugin]}></Pie>
       </div>
