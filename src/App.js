@@ -24,7 +24,6 @@ const borderColors = [
 
 const data = {
   labels: labels,
-  type: "bar",
   datasets: [
     {
       label: "Ventas",
