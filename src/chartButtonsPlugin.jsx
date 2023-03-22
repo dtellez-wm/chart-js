@@ -11,11 +11,11 @@ const chartButtonsPlugin = {
 const buttonY = chartArea.top + (chartArea.bottom - chartArea.top - 20) / 2;
 
 // Botón izquierdo
-ctx.fillStyle = "#FF0000";
+ctx.fillStyle = "var(--color-primary)";
 ctx.fillRect(chartArea.left + 10, buttonY, 40, 20);
 
 // Botón derecho
-ctx.fillStyle = "#00FF00";
+ctx.fillStyle = "var(--color-primary)";
 ctx.fillRect(chartArea.right - 50, buttonY, 40, 20);
 
     ctx.restore();
