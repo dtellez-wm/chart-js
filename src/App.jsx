@@ -5,6 +5,7 @@ import Search from "./Search";
 import { datos } from "./datos";
 import { labels } from "./labels";
 import Chart from "./Chart";
+import Podium from "./Podium";
 import { data, options } from "./chartConfig";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
     <div className="App">
       <Header />
       <Search />
+      <Podium />
       <div>
         <label htmlFor="chartType">Tipo de gráfico: </label>
         <select id="chartType" value={chartType} onChange={handleChartTypeChange}>
