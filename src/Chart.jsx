@@ -1,11 +1,12 @@
 import React from "react";
-import { Pie, Line, Bar } from "react-chartjs-2";
+import { Pie, Line, Bar, Radar } from "react-chartjs-2";
 import chartButtonsPlugin from "./chartButtonsPlugin";
 
 const chartComponents = {
   pie: Pie,
   line: Line,
   bar: Bar,
+  radar: Radar,
 };
 
 const Chart = ({ type, data, options }) => {

@@ -8,8 +8,31 @@ import Chart from "./Chart";
 import Podium from "./Podium";
 import { data, options } from "./chartConfig";
 
+function handleTop20Click(chartData, setChartData, setChartType) {
+  let pos = [];
+  let top20 = [...datos].sort((a, b) => b - a).slice(0, 20);
+  for (let i = 0; i < top20.length; i++) {
+    pos.push(datos.indexOf(top20[i]));
+  }
+  const newLabels = pos.map((element) => labels[element]);
+  const newData = {
+    ...chartData,
+    labels: newLabels,
+    datasets: [
+      {
+        ...chartData.datasets[0],
+        data: top20,
+      },
+    ],
+  };
+  setChartData(newData);
+  setChartType("pie");
+}
+
+
 function App() {
   const [chartType, setChartType] = useState("pie");
+  const [chartData, setChartData] = useState(data);
 
   const handleChartTypeChange = (event) => {
     setChartType(event.target.value);
@@ -19,17 +42,10 @@ function App() {
     <div className="App">
       <Header />
       <Search />
-      <Podium />
-      <div>
-        <label htmlFor="chartType">Tipo de gráfico: </label>
-        <select id="chartType" value={chartType} onChange={handleChartTypeChange}>
-          <option value="pie">Pastel</option>
-          {/* <option value="line">Linea</option> */}
-          <option value="bar">Barras</option>
-        </select>
-      </div>
+      <Podium handleTop20Click={() => handleTop20Click(chartData, setChartData, setChartType)} />
+      {/* ... Rest of your code */}
       <div className="prueba" style={{}}>
-        <Chart type={chartType} data={data} options={options} />
+        <Chart type={chartType} data={chartData} options={options} />
       </div>
     </div>
   );
