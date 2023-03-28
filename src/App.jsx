@@ -26,7 +26,7 @@ function handleTop20Click(chartData, setChartData, setChartType) {
     ],
   };
   setChartData(newData);
-  setChartType("pie");
+  setChartType("bar");
 }
 
 
@@ -43,7 +43,6 @@ function App() {
       <Header />
       <Search />
       <Podium handleTop20Click={() => handleTop20Click(chartData, setChartData, setChartType)} />
-      {/* ... Rest of your code */}
       <div className="prueba" style={{}}>
         <Chart type={chartType} data={chartData} options={options} />
       </div>
