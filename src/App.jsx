@@ -11,6 +11,11 @@ import { data, options } from "./chartConfig";
 function App() {
   const [chartType, setChartType] = useState("pie");
   const [chartData, setChartData] = useState(data);
+  const [showPodium, setShowPodium] = useState(false);
+
+  const handleControlsClick = () => {
+    setShowPodium((prevShow) => !prevShow);
+  };
 
   const handleChartTypeChange = (event) => {
     setChartType(event.target.value);
@@ -58,13 +63,37 @@ function App() {
     setChartType("pie");
   }
 
+  function handleTop5Click() {
+    let top5 = [...chartData.datasets[0].data].sort((a, b) => b - a).slice(0, 5);
+    let pos = [];
+    for (let i = 0; i < top5.length; i++) {
+      pos.push(chartData.datasets[0].data.indexOf(top5[i]));
+    }
+    const newLabels = pos.map((element) => chartData.labels[element]);
+    const newData = {
+      ...chartData,
+      labels: newLabels,
+      datasets: [
+        {
+          ...chartData.datasets[0],
+          data: top5,
+        },
+      ],
+    };
+    setChartData(newData);
+    setChartType("pie");
+  }
+
   return (
     <div className="App">
       <Header />
-      <Search />
+      <Search onControlsClick={handleControlsClick} />
       <Podium
         handleTop20Click={handleTop20Click}
         handleBottom5Click={handleBottom5Click}
+        handleTop5Click={handleTop5Click}
+        show={showPodium}
+        handleControlsClick={handleControlsClick}
       />
       <div className="prueba" style={{}}>
         <Chart type={chartType} data={chartData} options={options} />

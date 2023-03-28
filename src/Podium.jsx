@@ -1,11 +1,12 @@
 import React from "react";
 
-function Podium({  handleTop20Click, handleBottom5Click }) {
+function Podium({  handleTop20Click, handleBottom5Click, handleTop5Click, show, handleControlsClick }) {
+  
   return (
-    <div className="podium show">
+    <div className={`podium ${show ? "show" : ""}`}>
       <h2 className="title">Controles</h2>
       <div className="button_container">
-        <button className="btn" id="Top5">Top 5</button>
+        <button className="btn" id="Top5" onClick={handleTop5Click}>Top 5</button>
         <button className="btn" id="Top20" onClick={handleTop20Click} >Radar</button>
         <button className="btn" id="Bottom5" onClick={handleBottom5Click}>Bottom 5</button>
         <button className="btn" id="All">Reset</button>
