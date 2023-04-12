@@ -1,6 +1,5 @@
 import { datos } from "./datos";
 import { labels } from "./labels";
-import chartButtonsPlugin from "./chartButtonsPlugin";
 
 const borderColors = [
   // Tus colores de borde

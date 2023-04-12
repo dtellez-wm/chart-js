@@ -7,9 +7,10 @@ import { labels } from "./labels";
 import Chart from "./Chart";
 import Podium from "./Podium";
 import { data, options } from "./chartConfig";
+import { getTop20Data, getBottom5Data, getTop5Data } from "./dataHandlers";
 
 function App() {
-  const [chartType, setChartType] = useState("pie");
+  const [chartType, setChartType] = useState("bar");
   const [chartData, setChartData] = useState(data);
   const [showPodium, setShowPodium] = useState(false);
 
@@ -22,64 +23,19 @@ function App() {
   };
 
   function handleTop20Click() {
-    let pos = [];
-    let top20 = [...datos].sort((a, b) => b - a).slice(0, 20);
-    for (let i = 0; i < top20.length; i++) {
-      pos.push(datos.indexOf(top20[i]));
-    }
-    const newLabels = pos.map((element) => labels[element]);
-    const newData = {
-      ...chartData,
-      labels: newLabels,
-      datasets: [
-        {
-          ...chartData.datasets[0],
-          data: top20,
-        },
-      ],
-    };
+    const newData = getTop20Data(chartData);
     setChartData(newData);
     setChartType("bar");
   }
 
   function handleBottom5Click() {
-    let bottom5 = [...chartData.datasets[0].data].sort((a, b) => a - b).slice(0, 5);
-    let pos = [];
-    for (let i = 0; i < bottom5.length; i++) {
-      pos.push(chartData.datasets[0].data.indexOf(bottom5[i]));
-    }
-    const newLabels = pos.map((element) => chartData.labels[element]);
-    const newData = {
-      ...chartData,
-      labels: newLabels,
-      datasets: [
-        {
-          ...chartData.datasets[0],
-          data: bottom5,
-        },
-      ],
-    };
+    const newData = getBottom5Data(chartData);
     setChartData(newData);
     setChartType("pie");
   }
 
   function handleTop5Click() {
-    let top5 = [...chartData.datasets[0].data].sort((a, b) => b - a).slice(0, 5);
-    let pos = [];
-    for (let i = 0; i < top5.length; i++) {
-      pos.push(chartData.datasets[0].data.indexOf(top5[i]));
-    }
-    const newLabels = pos.map((element) => chartData.labels[element]);
-    const newData = {
-      ...chartData,
-      labels: newLabels,
-      datasets: [
-        {
-          ...chartData.datasets[0],
-          data: top5,
-        },
-      ],
-    };
+    const newData = getTop5Data(chartData);
     setChartData(newData);
     setChartType("pie");
   }
