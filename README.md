@@ -4,7 +4,7 @@ Este proyecto es una aplicación React que muestra gráficas utilizando Chart.js y
 
 ## Estructura del proyecto
 
-```plaintext
+```
 ??? App.css
 ??? App.jsx
 ??? App.test.js
