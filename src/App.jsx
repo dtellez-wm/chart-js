@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./App.css";
 import Header from "./Header";
 import Search from "./Search";
@@ -14,6 +14,22 @@ function App() {
   const [chartData, setChartData] = useState(data);
   const [showPodium, setShowPodium] = useState(false);
 
+  const [chartCanvas, setChartCanvas] = useState(null);
+
+  function handleChartCanvas(canvas) {
+    setChartCanvas(canvas);
+  }
+
+  function handleDownloadPngClick() {
+    if (chartCanvas) {
+      const link = document.createElement("a");
+      link.href = chartCanvas.toDataURL("image/png");
+      link.download = "chart.png";
+      link.click();
+    }
+  }
+  
+
   const handleControlsClick = () => {
     setShowPodium((prevShow) => !prevShow);
   };
@@ -27,7 +43,6 @@ function App() {
     setChartData(data);
     setChartType("bar");
   }
-  
 
   function handleTop20Click() {
     const newData = getTop20Data(chartData);
@@ -57,10 +72,11 @@ function App() {
         handleTop5Click={handleTop5Click}
         show={showPodium}
         handleControlsClick={handleControlsClick}
-        handleResetClick={handleResetClick} 
+        handleResetClick={handleResetClick}
+        handleDownloadPngClick={handleDownloadPngClick}
       />
       <div className="prueba" style={{}}>
-        <Chart type={chartType} data={chartData} options={options} />
+        <Chart handleChartCanvas={handleChartCanvas} type={chartType} data={chartData} options={options} />
       </div>
     </div>
   );

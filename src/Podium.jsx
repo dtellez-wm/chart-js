@@ -1,6 +1,6 @@
 import React from "react";
 
-function Podium({  handleTop20Click, handleBottom5Click, handleTop5Click, show, handleControlsClick, handleResetClick }) {
+function Podium({  handleTop20Click, handleBottom5Click, handleTop5Click, show, handleControlsClick, handleResetClick, handleDownloadPngClick }) {
   
   return (
     <div className={`podium ${show ? "show" : ""}`}>
@@ -11,7 +11,7 @@ function Podium({  handleTop20Click, handleBottom5Click, handleTop5Click, show, 
         <button className="btn" id="Bottom5" onClick={handleBottom5Click}>Bottom 5</button>
         <button className="btn" id="All" onClick={handleResetClick}>Reset</button>
         <button className="btn" id="showGrid">Grid</button>
-        <button className="btn" id="downloadPng">Descargar PNG</button>
+        <button className="btn" id="downloadPng" onClick={handleDownloadPngClick}>Descargar PNG</button>
         <button className="btn" id="downloadJpg">Descargar JPG</button>
         <button className="btn" id="maxValue">Valor maximo</button>
         <button className="btn" id="minValue">Valor minimo</button>
