@@ -57,7 +57,7 @@ function App() {
         handleTop5Click={handleTop5Click}
         show={showPodium}
         handleControlsClick={handleControlsClick}
-        handleResetClick={handleResetClick}
+        handleResetClick={handleResetClick} 
       />
       <div className="prueba" style={{}}>
         <Chart type={chartType} data={chartData} options={options} />

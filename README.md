@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# React Chart App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto es una aplicación React que muestra gráficas utilizando Chart.js y react-chartjs-2.
 
-## Available Scripts
+## Estructura del proyecto
 
-In the project directory, you can run:
+??? App.css
+??? App.jsx
+??? App.test.js
+??? Chart.jsx
+??? chartButtonsPlugin.jsx
+??? chartConfig.jsx
+??? dataHandlers.js
+??? datos.jsx
+??? Header.jsx
+??? index.css
+??? index.js
+??? labels.jsx
+??? MyChart.js
+??? Podium.jsx
+??? reportWebVitals.js
+??? Search.jsx
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Descripción de los archivos
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- `App.css`: Estilos CSS para el componente principal de la aplicación.
+- `App.jsx`: Componente principal de la aplicación que contiene la lógica para mostrar y actualizar las gráficas.
+- `App.test.js`: Pruebas para el componente principal de la aplicación.
+- `Chart.jsx`: Componente de gráfico que utiliza react-chartjs-2 para renderizar diferentes tipos de gráficas.
+- `chartButtonsPlugin.jsx`: Plugin de Chart.js para agregar botones a las gráficas.
+- `chartConfig.jsx`: Configuración de las opciones de gráficos y datos de ejemplo.
+- `dataHandlers.js`: Funciones para manipular y actualizar los datos de las gráficas.
+- `datos.jsx`: Datos de ejemplo para las gráficas.
+- `Header.jsx`: Componente para el encabezado de la aplicación.
+- `index.css`: Estilos CSS globales para la aplicación.
+- `index.js`: Punto de entrada de la aplicación React.
+- `labels.jsx`: Etiquetas de ejemplo para las gráficas.
+- `MyChart.js`: Archivo que contiene una implementación antigua de Chart.js (no se utiliza en la aplicación actual).
+- `Podium.jsx`: Componente para mostrar y controlar diferentes acciones, como mostrar el top 5, top 20, etc.
+- `reportWebVitals.js`: Funciones de rendimiento de la aplicación (generadas automáticamente por Create React App).
+- `Search.jsx`: Componente para el área de búsqueda y control de la aplicación.
 
-### `npm test`
+## Instalación y ejecución
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clona este repositorio.
 
-### `npm run build`
+```bash
+git clone https://github.com/yourusername/react-chart-app.git
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Instala las dependencias del proyecto.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+cd react-chart-app
+npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Ejecuta la aplicación en modo de desarrollo.
 
-### `npm run eject`
+npm start
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+La aplicación se abrirá en tu navegador web en http://localhost:3000.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Construcción y despliegue
+Para crear la versión de producción de la aplicación, ejecuta:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+npm run build
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Esto generará una carpeta build con la versión optimizada y minificada de la aplicación. Puedes utilizar cualquier servidor web para servir esta carpeta o desplegarla en un servicio de alojamiento como Vercel o Netlify.
