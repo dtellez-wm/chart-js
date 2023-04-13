@@ -8,7 +8,7 @@ const chartComponents = {
   radar: (props) => <Radar {...props} />,
 };
 
-const Chart = ({ type, data, options, handleChartCanvas }) => {
+const Chart = ({ type, data, options, handleChartCanvas, plugins }) => {
   const ChartComponent = chartComponents[type];
   const chartContainerRef = useRef();
 
@@ -24,7 +24,7 @@ const Chart = ({ type, data, options, handleChartCanvas }) => {
 
   return (
     <div ref={chartContainerRef}>
-      <ChartComponent data={data} options={options} />
+      <ChartComponent data={data} options={options} plugins={plugins} />
     </div>
   );
 };
