@@ -22,6 +22,7 @@ Este proyecto es una aplicación React que muestra gráficas utilizando Chart.js y
 ??? reportWebVitals.js
 ??? Search.jsx
 
+```plaintext
 
 
 ### Descripción de los archivos
