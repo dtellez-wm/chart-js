@@ -22,6 +22,13 @@ function App() {
     setChartType(event.target.value);
   };
 
+  function handleResetClick() {
+    // Restablecer los datos y opciones del gráfico a su estado original
+    setChartData(data);
+    setChartType("bar");
+  }
+  
+
   function handleTop20Click() {
     const newData = getTop20Data(chartData);
     setChartData(newData);
@@ -50,6 +57,7 @@ function App() {
         handleTop5Click={handleTop5Click}
         show={showPodium}
         handleControlsClick={handleControlsClick}
+        handleResetClick={handleResetClick}
       />
       <div className="prueba" style={{}}>
         <Chart type={chartType} data={chartData} options={options} />
