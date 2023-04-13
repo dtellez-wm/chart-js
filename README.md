@@ -21,8 +21,7 @@ Este proyecto es una aplicación React que muestra gráficas utilizando Chart.js y
 ??? Podium.jsx
 ??? reportWebVitals.js
 ??? Search.jsx
-
-plaintext```
+```
 
 
 ### Descripción de los archivos
