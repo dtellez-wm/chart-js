@@ -13,16 +13,22 @@ import {
   BarElement,
   CategoryScale,
   LinearScale,
+  PointElement,
+  Title,
+  Filler,
 } from "chart.js";
 
 ChartJS.register(
-  ArcElement,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
   Tooltip,
   Legend,
-  LineElement,
-  BarElement,
-  CategoryScale,
-  LinearScale
+  Filler,
+  ArcElement,
+  BarElement
 );
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
