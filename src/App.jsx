@@ -30,7 +30,6 @@ function App() {
       link.click();
     }
   }
-  
 
   const handleControlsClick = () => {
     setShowPodium((prevShow) => !prevShow);
