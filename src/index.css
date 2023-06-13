@@ -111,3 +111,27 @@ code {
 .show {
   display: inline-flex;
 }
+
+.chart-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+}
+
+.chart-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--color-primary);
+  border: none;
+  color: white;
+  padding: 5px 10px;
+}
+
+.chart-button.left {
+  left: 10px;
+}
+
+.chart-button.right {
+  right: 10px;
+}

@@ -10,13 +10,30 @@ import { data, options } from "./chartConfig";
 import { getTop20Data, getBottom5Data, getTop5Data } from "./dataHandlers";
 import chartButtonsPlugin from "./chartButtonsPlugin";
 
-
 function App() {
   const [chartType, setChartType] = useState("bar");
   const [chartData, setChartData] = useState(data);
   const [showPodium, setShowPodium] = useState(false);
 
   const [chartCanvas, setChartCanvas] = useState(null);
+
+  const [startIndex, setStartIndex] = useState(0);
+  const [endIndex, setEndIndex] = useState(20); // Asume que inicialmente se muestran 20 puntos de datos
+
+  const handleLeftButtonClick = () => {
+    if (startIndex - 5 >= 0) { // Asume que te mueves 5 puntos de datos a la vez
+      setStartIndex(startIndex - 5);
+      setEndIndex(endIndex - 5);
+    }
+  };
+
+  const handleRightButtonClick = () => {
+    if (endIndex + 5 <= data.length) { // Asume que te mueves 5 puntos de datos a la vez
+      setStartIndex(startIndex + 5);
+      setEndIndex(endIndex + 5);
+    }
+  };
+
 
   function handleChartCanvas(canvas) {
     setChartCanvas(canvas);
@@ -77,7 +94,15 @@ function App() {
         handleDownloadPngClick={handleDownloadPngClick}
       />
       <div className="prueba" style={{}}>
-        <Chart plugins={[chartButtonsPlugin]} handleChartCanvas={handleChartCanvas} type={chartType} data={chartData} options={options} />
+        <div className="chart-container">
+          <button className="chart-button left" onClick={handleLeftButtonClick}>
+            Izquierda
+          </button>
+          <button className="chart-button right" onClick={handleRightButtonClick}>
+            Derecha
+          </button>
+          <Chart plugins={[chartButtonsPlugin]} handleChartCanvas={handleChartCanvas} type={chartType} data={chartData} options={options} />
+        </div>
       </div>
     </div>
   );
