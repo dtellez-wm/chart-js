@@ -12,27 +12,75 @@ import chartButtonsPlugin from "./chartButtonsPlugin";
 
 function App() {
   const [chartType, setChartType] = useState("bar");
-  const [chartData, setChartData] = useState(data);
-  const [showPodium, setShowPodium] = useState(false);
-
   const [chartCanvas, setChartCanvas] = useState(null);
 
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(20); // Asume que inicialmente se muestran 20 puntos de datos
 
+  const initialData = data.datasets[0].data.slice(0, 20);
+  const initialLabels = labels.slice(0, 20);
+
+  const [chartData, setChartData] = useState({
+    ...data,
+    labels: initialLabels,
+    datasets: [
+      {
+        ...data.datasets[0],
+        data: initialData,
+      },
+    ],
+  });
+
+  const [showPodium, setShowPodium] = useState(false);
+
   const handleLeftButtonClick = () => {
-    if (startIndex - 5 >= 0) { // Asume que te mueves 5 puntos de datos a la vez
-      setStartIndex(startIndex - 5);
-      setEndIndex(endIndex - 5);
+    if (startIndex - 5 >= 0) {
+      const newStartIndex = startIndex - 5;
+      const newEndIndex = endIndex - 5;
+
+      setStartIndex(newStartIndex);
+      setEndIndex(newEndIndex);
+
+      const newData = data.datasets[0].data.slice(newStartIndex, newEndIndex);
+      const newLabels = labels.slice(newStartIndex, newEndIndex);
+
+      setChartData({
+        ...data,
+        labels: newLabels,
+        datasets: [
+          {
+            ...data.datasets[0],
+            data: newData,
+          },
+        ],
+      });
     }
   };
 
   const handleRightButtonClick = () => {
-    if (endIndex + 5 <= data.length) { // Asume que te mueves 5 puntos de datos a la vez
-      setStartIndex(startIndex + 5);
-      setEndIndex(endIndex + 5);
+    if (endIndex + 5 <= data.datasets[0].data.length) {
+      const newStartIndex = startIndex + 5;
+      const newEndIndex = endIndex + 5;
+
+      setStartIndex(newStartIndex);
+      setEndIndex(newEndIndex);
+
+      const newData = data.datasets[0].data.slice(newStartIndex, newEndIndex);
+      const newLabels = labels.slice(newStartIndex, newEndIndex);
+
+      setChartData({
+        ...data,
+        labels: newLabels,
+        datasets: [
+          {
+            ...data.datasets[0],
+            data: newData,
+          },
+        ],
+      });
     }
   };
+
 
 
   function handleChartCanvas(canvas) {
@@ -57,7 +105,7 @@ function App() {
   };
 
   function handleResetClick() {
-    // Restablecer los datos y opciones del gráfico a su estado original
+    // Restablecer los datos y opciones del grï¿½fico a su estado original
     setChartData(data);
     setChartType("bar");
   }
