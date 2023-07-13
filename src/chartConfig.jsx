@@ -21,7 +21,7 @@ const data = {
 const options = {
   responsive: true,
   plugins: {
-    chartButtonsPlugin: {},
+    // chartButtonsPlugin: {}, Example of how to use the plugin
   },
 };
 

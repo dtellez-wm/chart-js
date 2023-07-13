@@ -9,7 +9,6 @@ Este proyecto es una aplicación React que muestra gráficas utilizando Chart.js y
 ??? App.jsx
 ??? App.test.js
 ??? Chart.jsx
-??? chartButtonsPlugin.jsx
 ??? chartConfig.jsx
 ??? dataHandlers.js
 ??? datos.jsx
@@ -30,7 +29,6 @@ Este proyecto es una aplicación React que muestra gráficas utilizando Chart.js y
 - `App.jsx`: Componente principal de la aplicación que contiene la lógica para mostrar y actualizar las gráficas.
 - `App.test.js`: Pruebas para el componente principal de la aplicación.
 - `Chart.jsx`: Componente de gráfico que utiliza react-chartjs-2 para renderizar diferentes tipos de gráficas.
-- `chartButtonsPlugin.jsx`: Plugin de Chart.js para agregar botones a las gráficas.
 - `chartConfig.jsx`: Configuración de las opciones de gráficos y datos de ejemplo.
 - `dataHandlers.js`: Funciones para manipular y actualizar los datos de las gráficas.
 - `datos.jsx`: Datos de ejemplo para las gráficas.

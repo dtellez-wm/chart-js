@@ -8,7 +8,6 @@ import Chart from "./Chart";
 import Podium from "./Podium";
 import { data, options } from "./chartConfig";
 import { getTop20Data, getBottom5Data, getTop5Data } from "./dataHandlers";
-import chartButtonsPlugin from "./chartButtonsPlugin";
 
 function App() {
   const [chartType, setChartType] = useState("bar");
@@ -149,7 +148,7 @@ function App() {
           <button className="chart-button right" onClick={handleRightButtonClick}>
             Derecha
           </button>
-          <Chart plugins={[chartButtonsPlugin]} handleChartCanvas={handleChartCanvas} type={chartType} data={chartData} options={options} />
+          <Chart /*plugins={[chartButtonsPlugin]}*/ handleChartCanvas={handleChartCanvas} type={chartType} data={chartData} options={options} />
         </div>
       </div>
     </div>
