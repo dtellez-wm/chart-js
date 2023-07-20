@@ -106,6 +106,7 @@ code {
   display: none;
   overflow: auto;
   align-items: center;
+  z-index: 1000;
 }
 
 .show {
@@ -126,6 +127,10 @@ code {
   border: none;
   color: white;
   padding: 5px 10px;
+}
+
+.chart-button:hover {
+  cursor: pointer;
 }
 
 .chart-button.left {
