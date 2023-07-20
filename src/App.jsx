@@ -32,6 +32,32 @@ function App() {
 
   const [showPodium, setShowPodium] = useState(false);
 
+  const handleSearchChange = (value) => {
+    const index = labels.findIndex(label => label.toLowerCase().includes(value.toLowerCase()));
+
+    if (index >= 0) {
+      const newStartIndex = Math.max(index - 10, 0); // Asegurarnos de que el inicio no sea un número negativo
+      const newEndIndex = Math.min(newStartIndex + 20, labels.length); // Asegurarnos de que el final no sea mayor que la longitud total
+
+      setStartIndex(newStartIndex);
+      setEndIndex(newEndIndex);
+
+      const newData = data.datasets[0].data.slice(newStartIndex, newEndIndex);
+      const newLabels = labels.slice(newStartIndex, newEndIndex);
+
+      setChartData({
+        ...data,
+        labels: newLabels,
+        datasets: [
+          {
+            ...data.datasets[0],
+            data: newData,
+          },
+        ],
+      });
+    }
+  };
+
   const handleLeftButtonClick = () => {
     if (startIndex - 5 >= 0) {
       const newStartIndex = startIndex - 5;
@@ -130,7 +156,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Search onControlsClick={handleControlsClick} />
+      <Search onControlsClick={handleControlsClick} onSearchChange={handleSearchChange} />
       <Podium
         handleTop20Click={handleTop20Click}
         handleBottom5Click={handleBottom5Click}
