@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import "./index.css";
 
-function Search({ onControlsClick, onSearchChange }) {
-  const [searchValue, setSearchValue] = useState('');
+function Search({ onControlsClick, onNameSearchChange, onDataSearchChange }) {
+  const [nameSearchValue, setNameSearchValue] = useState('');
+  const [dataSearchValue, setDataSearchValue] = useState('');
 
-  const handleSearchChange = (event) => {
-    setSearchValue(event.target.value);
-    onSearchChange(event.target.value);
+  const handleNameSearchChange = (event) => {
+    setNameSearchValue(event.target.value);
+    onNameSearchChange(event.target.value);
+  };
+
+  const handleDataSearchChange = (event) => {
+    setDataSearchValue(event.target.value);
+    onDataSearchChange(event.target.value);
   };
 
   const handleSubmit = (event) => {
@@ -21,10 +27,18 @@ function Search({ onControlsClick, onSearchChange }) {
         name="buscador"
         id="buscador"
         className="cssBuscador buscador"
-        value={searchValue}
-        onChange={handleSearchChange}
+        value={nameSearchValue}
+        onChange={handleNameSearchChange}
       />
-       <input placeholder="Buscar por valor" type="search" name="buscador" id="buscador2" className="cssBuscador buscador2" />
+      <input
+        placeholder="Buscar por valor"
+        type="search"
+        name="buscador"
+        id="buscador2"
+        className="cssBuscador buscador2"
+        value={dataSearchValue}
+        onChange={handleDataSearchChange}
+      />
       <button className="btn" id="controls" onClick={onControlsClick}>
         Controles
       </button>

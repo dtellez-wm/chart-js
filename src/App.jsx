@@ -32,8 +32,8 @@ function App() {
 
   const [showPodium, setShowPodium] = useState(false);
 
-  const handleSearchChange = (value) => {
-    const index = labels.findIndex(label => label.toLowerCase().includes(value.toLowerCase()));
+  const handleNameSearchChange = (value) => {
+    const index = labels.findIndex((label) => label.toLowerCase().includes(value.toLowerCase()));
 
     if (index >= 0) {
       const newStartIndex = Math.max(index - 10, 0); // Asegurarnos de que el inicio no sea un número negativo
@@ -43,6 +43,29 @@ function App() {
       setEndIndex(newEndIndex);
 
       const newData = data.datasets[0].data.slice(newStartIndex, newEndIndex);
+      const newLabels = labels.slice(newStartIndex, newEndIndex);
+
+      setChartData({
+        ...data,
+        labels: newLabels,
+        datasets: [
+          {
+            ...data.datasets[0],
+            data: newData,
+          },
+        ],
+      });
+    }
+  };
+
+  const handleDataSearchChange = (value) => {
+    const index = datos.findIndex((dato) => dato === parseInt(value, 10));
+
+    if (index >= 0) {
+      const newStartIndex = Math.max(index - 10, 0);
+      const newEndIndex = Math.min(newStartIndex + 20, datos.length);
+
+      const newData = datos.slice(newStartIndex, newEndIndex);
       const newLabels = labels.slice(newStartIndex, newEndIndex);
 
       setChartData({
@@ -106,8 +129,6 @@ function App() {
     }
   };
 
-
-
   function handleChartCanvas(canvas) {
     setChartCanvas(canvas);
   }
@@ -156,7 +177,11 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Search onControlsClick={handleControlsClick} onSearchChange={handleSearchChange} />
+      <Search
+        onControlsClick={handleControlsClick}
+        onNameSearchChange={handleNameSearchChange}
+        onDataSearchChange={handleDataSearchChange}
+      />
       <Podium
         handleTop20Click={handleTop20Click}
         handleBottom5Click={handleBottom5Click}
@@ -174,7 +199,12 @@ function App() {
           <button className="chart-button right" onClick={handleRightButtonClick}>
             Derecha
           </button>
-          <Chart /*plugins={[chartButtonsPlugin]}*/ handleChartCanvas={handleChartCanvas} type={chartType} data={chartData} options={options} />
+          <Chart
+            /*plugins={[chartButtonsPlugin]}*/ handleChartCanvas={handleChartCanvas}
+            type={chartType}
+            data={chartData}
+            options={options}
+          />
         </div>
       </div>
     </div>
